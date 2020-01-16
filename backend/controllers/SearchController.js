@@ -1,9 +1,7 @@
-/* eslint-disable no-undef */
-import Dev from '../models/Dev';
+const Dev = require('../models/Dev');
+const parseStringAsArray = require('../utils/parseStringAsArray');
 
-import parseStringAsArray from '../utils/parseStringAsArray';
-
-class SearchController {
+module.exports = {
   async index(req, res) {
     const { latitude, longitude, techs } = req.query;
 
@@ -27,5 +25,3 @@ class SearchController {
     res.json(devs);
   }
 }
-
-export default new SearchController();

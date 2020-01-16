@@ -1,15 +1,13 @@
-/* eslint-disable no-undef */
-import Dev from '../models/Dev';
-import api from '../services/api';
+const Dev = require('../models/Dev');
+const api = require('../services/api');
+const parseStringAsArray = require('../utils/parseStringAsArray');
 
-import parseStringAsArray from '../utils/parseStringAsArray';
-
-class DevController {
+module.exports = {
   async index(req, res) {
     const devs = await Dev.find();
 
     res.json(devs);
-  }
+  },
 
   async store(req, res) {
     const { github_username, techs, latitude, longitude } = req.body;
@@ -40,6 +38,4 @@ class DevController {
 
     res.json(dev);
   }
-}
-
-export default new DevController();
+};
