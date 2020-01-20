@@ -3,17 +3,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const routes = require('./routes');
 
-/*
-mongoose.connect('mongodb+srv://omnistack:omnistack@cluster0-dfpzp.mongodb.net/semana09?retryWrites=true&w=majority',{
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
-
-// atualizacao da api
-// atualizacao da api
-// atualizacao da api
-*/
-
 mongoose.connect('mongodb+srv://omnistack:omnistack@cluster0-dfpzp.mongodb.net/semana10?retryWrites=true&w=majority',{
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -21,7 +10,7 @@ mongoose.connect('mongodb+srv://omnistack:omnistack@cluster0-dfpzp.mongodb.net/s
 
 const app = express();
 
-app.use(cors());
+app.use(cors("https://omnistack10api.herokuapp.com/"));
 app.use(express.json());
 app.use(routes);
 
