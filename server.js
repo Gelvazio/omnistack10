@@ -8,6 +8,7 @@ mongoose.connect('mongodb+srv://omnistack:omnistack@cluster0-dfpzp.mongodb.net/s
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
+
 */
 
 mongoose.connect('mongodb+srv://omnistack:omnistack@cluster0-dfpzp.mongodb.net/semana10?retryWrites=true&w=majority',{
