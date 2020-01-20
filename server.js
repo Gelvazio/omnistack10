@@ -10,7 +10,7 @@ mongoose.connect('mongodb+srv://omnistack:omnistack@cluster0-dfpzp.mongodb.net/s
 
 const app = express();
 
-app.use(cors("https://omnistack10api.herokuapp.com/"));
+app.use(cors({ origin: "https://omnistack10api.herokuapp.com/"}));
 app.use(express.json());
 app.use(routes);
 
