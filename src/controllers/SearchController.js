@@ -1,13 +1,17 @@
-const Dev = require('../models/Dev');
-const parseStringAsArray = require('../utils/parseStringAsArray');
+import Dev from '../models/Devs';
+import parseStingAsArray from '../utils/parseStingAsArray';
 
-module.exports = {
+class SearchController {
   async index(req, res) {
     const { latitude, longitude, techs } = req.query;
+     
 
-    const techsArray = parseStringAsArray(techs);
+    const uppperTechs = techs.toUpperCase();
+    const techsArray = parseStingAsArray(uppperTechs);
+
 
     const devs = await Dev.find({
+      active: true,
       techs: {
         $in: techsArray,
       },
@@ -17,11 +21,13 @@ module.exports = {
             type: 'Point',
             coordinates: [longitude, latitude],
           },
-          $maxDistance: 10000,
+          $maxDistance: 30000,
         },
       },
     });
 
-    res.json(devs);
+    return res.json(devs);
   }
 }
+
+export default new SearchController();
